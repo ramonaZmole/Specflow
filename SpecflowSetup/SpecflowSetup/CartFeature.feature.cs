@@ -63,19 +63,140 @@ namespace SpecflowSetup
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line 7
+ testRunner.Given("the user is in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Remove product from cart")]
         public virtual void RemoveProductFromCart()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Remove product from cart", ((string[])(null)));
-#line 6
-this.ScenarioSetup(scenarioInfo);
-#line 7
- testRunner.Given("the user is in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
- testRunner.When("the user removes the product from cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 10
+ testRunner.And("there is product 418 with quantity 1 in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.When("the user removes the product from cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
  testRunner.Then("the cart gets empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Shipping is not free for orders under $1000")]
+        public virtual void ShippingIsNotFreeForOrdersUnder1000()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Shipping is not free for orders under $1000", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 15
+ testRunner.And("there is product 418 with quantity 1 in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.When("the user apply a zip code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
+ testRunner.Then("the shipping is not free", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Shipping is free for orders above $1000")]
+        public virtual void ShippingIsFreeForOrdersAbove1000()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Shipping is free for orders above $1000", ((string[])(null)));
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 20
+ testRunner.And("there is product 7013 with quantity 100 in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.When("the user apply a zip code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
+ testRunner.Then("the shipping is free", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Shipping is unavailable for dropship materials")]
+        public virtual void ShippingIsUnavailableForDropshipMaterials()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Shipping is unavailable for dropship materials", ((string[])(null)));
+#line 24
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 25
+ testRunner.And("there is product 18631 with quantity 1 in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.When("the user apply a zip code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 27
+ testRunner.Then("the shipping is unavailable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Empty the cart")]
+        public virtual void EmptyTheCart()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Empty the cart", ((string[])(null)));
+#line 29
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "material number",
+                        "quantity"});
+            table1.AddRow(new string[] {
+                        "418",
+                        "2"});
+            table1.AddRow(new string[] {
+                        "18631",
+                        "4"});
+            table1.AddRow(new string[] {
+                        "7031",
+                        "1"});
+#line 30
+ testRunner.And("there are the following products in cart", ((string)(null)), table1, "And ");
+#line 35
+ testRunner.When("the user select Empty cart link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+ testRunner.Then("the cart gets empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check shipping")]
+        [NUnit.Framework.TestCaseAttribute("18631", "1", "Unavailable", null)]
+        [NUnit.Framework.TestCaseAttribute("418", "1", "7.95", null)]
+        [NUnit.Framework.TestCaseAttribute("7013", "100", "FREE", null)]
+        public virtual void CheckShipping(string material, string quantity, string shipping, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check shipping", exampleTags);
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 40
+ testRunner.And(string.Format("there is {0} with {1} in cart", material, quantity), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+ testRunner.When("the user apply a zip code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.Then(string.Format("the shipping is {0}", shipping), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
