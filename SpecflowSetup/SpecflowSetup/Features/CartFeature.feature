@@ -46,5 +46,3 @@ Examples:
 	| 18631    | 1        | Unavailable |
 	| 418      | 1        | 7.95        |
 	| 7013     | 100      | FREE        |
-
-
