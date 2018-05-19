@@ -37,12 +37,12 @@ Scenario: Empty the cart
 
 
 Scenario Outline: Check shipping 
-	And there is <material> with <quantity> in cart
+	And there is <Material> with <Quantity> in cart
 	When the user apply a zip code
-	Then the shipping is <shipping>
+	Then shipping is <shipping>
 
 Examples: 
-	| material | quantity | shipping    |
+	| Material | Quantity | shipping    |
 	| 18631    | 1        | Unavailable |
 	| 418      | 1        | 7.95        |
 	| 7013     | 100      | FREE        |
