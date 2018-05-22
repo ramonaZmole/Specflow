@@ -68,8 +68,8 @@
     <Compile Include="Helpers\MaterialDetails.cs" />
     <Compile Include="Pages\AbstractPage.cs" />
     <Compile Include="Pages\CartPage.cs" />
+    <Compile Include="Pages\ConsumerPages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Steps\AbstractSteps.cs" />
     <Compile Include="Steps\CartFeatureSteps1.cs" />
     <Compile Include="TestFixture\TestBase.cs" />
   </ItemGroup>

@@ -2,30 +2,37 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SpecflowSetup.Pages;
+using SpecflowSetup.Steps;
 using TechTalk.SpecFlow;
 
 namespace SpecflowSetup.TestFixture
 {
     [Binding]
     [SetUpFixture]
-    internal class TestBase
+    public class TestBase
     {
-        private static IWebDriver driver;
+        public static IWebDriver Driver;
 
-        [BeforeTestRun]
+        public static IWebDriver TestBaseinit => Driver;
+
+        [BeforeScenario]
         public static void SetUpDriver()
         {
             var options = new ChromeOptions();
             options.AddArguments("start-maximized");
-            driver = new ChromeDriver(options);
-            driver.Manage().Timeouts().ImplicitWait = new TimeSpan(0, 0, 2);
+            Driver = new ChromeDriver(options);
+            Driver.Manage().Timeouts().ImplicitWait = new TimeSpan(0, 0, 2);
+
+            AbstractPage.SetupDriver(Driver);
+
         }
 
-        [AfterTestRun]
+        [AfterScenario]
         public static void TeardownEditorDriver()
         {
-            driver.Close();
-            driver.Quit();
+            Driver.Close();
+            Driver.Quit();
         }
     }
 }

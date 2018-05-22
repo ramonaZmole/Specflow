@@ -6,17 +6,24 @@ namespace SpecflowSetup.Pages
 {
     public class AbstractPage
     {
-        public IWebDriver Driver;
+        public static IWebDriver Driver;
 
         public AbstractPage(IWebDriver driver)
         {
             Driver = driver;
         }
 
+        public static void SetupDriver(IWebDriver driver)
+        {
+            Driver = driver;
+        }
+
+        public static CartPage CartPage => new CartPage(Driver);
+
         public void NavigateTo(string url)
         {
             Driver.Navigate().GoToUrl(url);
-            // WaitForDocumentReadyState();
+            WaitForAllAjaxRequestToFinish();
         }
 
         public void ActionClick(By bySelector)
