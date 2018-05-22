@@ -6,9 +6,9 @@ using TechTalk.SpecFlow;
 namespace SpecflowSetup.Steps
 {
     [Binding]
-    public class CartFeatureSteps : AbstractSteps
+    public class CartFeatureSteps1 : AbstractSteps
     {
-        public CartFeatureSteps(IWebDriver driver) : base(driver)
+        public CartFeatureSteps1(IWebDriver driver) : base(driver)
         {
             Driver = driver;
         }
@@ -90,6 +90,5 @@ namespace SpecflowSetup.Steps
             var actualShipping = CartPage.GetShipping();
             Assert.AreEqual(actualShipping, shipping);
         }
-
     }
 }
