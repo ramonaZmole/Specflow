@@ -29,12 +29,6 @@ namespace SpecflowSetup.Steps
             _cartPage.AddProductsToCart(table);
         }
 
-        //[Given(@"there is (.*) with (.*) in cart")]
-        //public void GivenThereIsWithInCart(int sku, int quantity)
-        //{
-
-        //}
-
         [When(@"the user removes the product from cart")]
         public void WhenTheUserRemovesTheProductFromCart()
         {

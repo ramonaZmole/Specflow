@@ -19,6 +19,7 @@ namespace SpecflowSetup.Pages
         private readonly By _materialNumberInputs = By.CssSelector("[name*='materialNumber']");
         private readonly By _quantityInputs = By.CssSelector("[name*='quantity']");
         private readonly By _emptyCartLink = By.CssSelector("#empty-cart-link");
+        private readonly By _emptyCartButton = By.CssSelector("#empty-cart-model-save");
 
         public CartPage(IWebDriver driver) : base(driver)
         {
@@ -67,41 +68,30 @@ namespace SpecflowSetup.Pages
             return shippingText;
         }
 
-        public bool IsShippingFreeOrUnavailable()
-        {
-            WaitForAllAjaxRequestToFinish();
-            var shipping =
-                Driver.FindElement(_shippingValue).FindElement(By.CssSelector("strong")).GetAttribute("ng-if") ??
-                Driver.FindElement(_shippingValue).FindElement(By.CssSelector("span")).GetAttribute("ng-if");
-
-            var shippingText = shipping.Equals("cart.shippingAndHandling.success")
-                ? Driver.FindElement(_shippingValue).FindElement(By.CssSelector("span>strong")).Text
-                : Driver.FindElement(_shippingValue).FindElement(By.CssSelector("strong")).Text;
-
-            return shippingText.Equals("$0.00") || shippingText.Equals(Shipping.FREE) || shippingText.Equals(Shipping.Unavailable);
-        }
-
         public void AddProductsToCart(Table table)
         {
             ActionClick(_quickShopLink);
+            WaitForAllAjaxRequestToFinish();
             var materials = table.CreateSet<MaterialDetails>();
+            var materialList = Driver.FindElements(_materialNumberInputs);
+            var quantityList = Driver.FindElements(_quantityInputs);
+            var i = 0;
             foreach (var material in materials)
             {
-                for (var i = 0; i < 5; i++)
-                {
-                    var materialList = Driver.FindElements(_materialNumberInputs);
-                    var quantityList = Driver.FindElements(_quantityInputs);
-
-                    materialList[i].SendKeys(material.MaterialNumber.ToString());
-                    quantityList[i].SendKeys(material.Quantity.ToString());
-                }
+                materialList[i].SendKeys(material.MaterialNumber.ToString());
+                quantityList[i].SendKeys(material.Quantity.ToString());
+                i++;
             }
             ActionClick(_addToCArtButton);
+            WaitForAllAjaxRequestToFinish();
+            NavigateTo(Constants.CartUrl);
         }
 
         public void ClickEmptyCartLink()
         {
             ActionClick(_emptyCartLink);
+            ActionClick(_emptyCartButton);
+            WaitForAllAjaxRequestToFinish();
         }
     }
 }

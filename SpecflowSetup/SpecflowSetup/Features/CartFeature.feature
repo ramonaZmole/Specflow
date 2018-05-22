@@ -31,7 +31,7 @@ Scenario: Empty the cart
 	| material number | quantity |
 	| 418             | 2        |
 	| 18631           | 4        |
-	| 7031            | 1        |
+	| 20093           | 1        |
 	When the user select Empty cart link 
 	Then the cart gets empty
 
@@ -45,4 +45,4 @@ Examples:
 	| Material | Quantity | shipping    |
 	| 18631    | 1        | Unavailable |
 	| 418      | 1        | 7.95        |
-	| 7013     | 100      | FREE        |
+	| 20093    | 105      | FREE        |

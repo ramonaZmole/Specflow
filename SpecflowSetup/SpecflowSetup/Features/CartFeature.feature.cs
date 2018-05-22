@@ -167,7 +167,7 @@ this.FeatureBackground();
                         "18631",
                         "4"});
             table1.AddRow(new string[] {
-                        "7031",
+                        "20093",
                         "1"});
 #line 30
  testRunner.And("there are the following products in cart", ((string)(null)), table1, "And ");
@@ -183,7 +183,7 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Check shipping")]
         [NUnit.Framework.TestCaseAttribute("18631", "1", "Unavailable", null)]
         [NUnit.Framework.TestCaseAttribute("418", "1", "7.95", null)]
-        [NUnit.Framework.TestCaseAttribute("7013", "100", "FREE", null)]
+        [NUnit.Framework.TestCaseAttribute("20093", "105", "FREE", null)]
         public virtual void CheckShipping(string material, string quantity, string shipping, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check shipping", exampleTags);
