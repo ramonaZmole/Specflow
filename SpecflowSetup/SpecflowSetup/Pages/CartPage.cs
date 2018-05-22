@@ -18,6 +18,7 @@ namespace SpecflowSetup.Pages
         private readonly By _shippingValue = By.CssSelector("#shipping-and-handling>div:last-child");
         private readonly By _materialNumberInputs = By.CssSelector("[name*='materialNumber']");
         private readonly By _quantityInputs = By.CssSelector("[name*='quantity']");
+        private readonly By _emptyCartLink = By.CssSelector("#empty-cart-link");
 
         public CartPage(IWebDriver driver) : base(driver)
         {
@@ -50,6 +51,7 @@ namespace SpecflowSetup.Pages
             ActionClearField(_zipCodeInput);
             ActionSendKeys(_zipCodeInput, Constants.ZipCode);
             ActionClick(_applyZipCodeButton);
+            WaitForAllAjaxRequestToFinish();
         }
 
         public string GetShipping()
@@ -81,6 +83,7 @@ namespace SpecflowSetup.Pages
 
         public void AddProductsToCart(Table table)
         {
+            ActionClick(_quickShopLink);
             var materials = table.CreateSet<MaterialDetails>();
             foreach (var material in materials)
             {
@@ -94,6 +97,11 @@ namespace SpecflowSetup.Pages
                 }
             }
             ActionClick(_addToCArtButton);
+        }
+
+        public void ClickEmptyCartLink()
+        {
+            ActionClick(_emptyCartLink);
         }
     }
 }

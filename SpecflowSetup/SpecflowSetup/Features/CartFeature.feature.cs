@@ -119,7 +119,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line 20
- testRunner.And("there is product 7013 with quantity 100 in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("there is product 20093 with quantity 105 in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
  testRunner.When("the user apply a zip code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22

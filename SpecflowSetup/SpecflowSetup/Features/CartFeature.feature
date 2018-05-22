@@ -17,7 +17,7 @@ Scenario: Shipping is not free for orders under $1000
 	Then the shipping is not free
 
 Scenario: Shipping is free for orders above $1000
-	And  there is product 7013 with quantity 100 in cart
+	And  there is product 20093 with quantity 105 in cart
 	When the user apply a zip code
 	Then the shipping is free
 

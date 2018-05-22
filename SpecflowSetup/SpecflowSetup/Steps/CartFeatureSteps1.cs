@@ -50,7 +50,7 @@ namespace SpecflowSetup.Steps
         [When(@"the user select Empty cart link")]
         public void WhenTheUserSelectEmptyCartLink()
         {
-            ScenarioContext.Current.Pending();
+            _cartPage.ClickEmptyCartLink();
         }
 
         [Then(@"the cart gets empty")]
@@ -71,14 +71,14 @@ namespace SpecflowSetup.Steps
         public void ThenTheShippingIsFree()
         {
             var actualShipping = _cartPage.GetShipping();
-            Assert.AreEqual(Shipping.FREE, actualShipping);
+            Assert.AreEqual(Shipping.FREE.ToString(), actualShipping.CleanNumber());
         }
 
         [Then(@"the shipping is unavailable")]
         public void ThenTheShippingIsUnavailable()
         {
             var actualShipping = _cartPage.GetShipping();
-            Assert.AreEqual(Shipping.Unavailable, actualShipping);
+            Assert.AreEqual(Shipping.Unavailable.ToString(), actualShipping);
         }
 
         [Then(@"shipping is (.*)")]
