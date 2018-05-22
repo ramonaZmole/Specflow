@@ -6,7 +6,7 @@ using TechTalk.SpecFlow;
 namespace SpecflowSetup.Steps
 {
     [Binding]
-    public class CartFeatureSteps1
+    public class CartFeatureSteps : TechTalk.SpecFlow.Steps
     {
         private readonly CartPage _cartPage = AbstractPage.CartPage;
 
@@ -80,6 +80,13 @@ namespace SpecflowSetup.Steps
         {
             var actualShipping = _cartPage.GetShipping();
             Assert.AreEqual(actualShipping, shipping);
+        }
+
+        [Given(@"I have material (.*) with quantity (.*)")]
+        public void GivenIHaveMaterialWithQuantity(int sku, int quantity)
+        {
+            Given($"there is product {sku} with quantity {quantity} in cart");
+            When("the user apply a zip code");
         }
     }
 }

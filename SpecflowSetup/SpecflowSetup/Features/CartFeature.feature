@@ -46,3 +46,8 @@ Examples:
 	| 18631    | 1        | Unavailable |
 	| 418      | 1        | 7.95        |
 	| 20093    | 105      | FREE        |
+
+
+Scenario: Shipping is free for total above $1000
+	And I have material 20093 with quantity 105
+	Then the shipping is free

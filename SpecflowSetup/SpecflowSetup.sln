@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecflowSetup", "SpecflowSetup\SpecflowSetup.csproj", "{DDF6B95D-D05A-4C89-8DCB-44095740FDCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External", "External\External.csproj", "{2779E685-77F8-49CF-8D1E-E72632A7DFAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DDF6B95D-D05A-4C89-8DCB-44095740FDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDF6B95D-D05A-4C89-8DCB-44095740FDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDF6B95D-D05A-4C89-8DCB-44095740FDCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2779E685-77F8-49CF-8D1E-E72632A7DFAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2779E685-77F8-49CF-8D1E-E72632A7DFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2779E685-77F8-49CF-8D1E-E72632A7DFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2779E685-77F8-49CF-8D1E-E72632A7DFAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
