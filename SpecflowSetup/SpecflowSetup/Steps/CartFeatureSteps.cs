@@ -65,7 +65,7 @@ namespace SpecflowSetup.Steps
         public void ThenTheShippingIsFree()
         {
             var actualShipping = _cartPage.GetShipping();
-            Assert.AreEqual(Shipping.FREE.ToString(), actualShipping.CleanNumber());
+            Assert.AreEqual(Shipping.FREE.ToString(), actualShipping);
         }
 
         [Then(@"the shipping is unavailable")]
@@ -88,5 +88,18 @@ namespace SpecflowSetup.Steps
             Given($"there is product {sku} with quantity {quantity} in cart");
             When("the user apply a zip code");
         }
+
+        [When(@"the user apply a priority code")]
+        public void WhenTheUserApplyAPriorityCode()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"the discount is present")]
+        public void ThenTheDiscountIsPresent()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }

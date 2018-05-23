@@ -19,6 +19,7 @@ namespace SpecflowSetup.Pages
         }
 
         public static CartPage CartPage => new CartPage(Driver);
+        public static CheckoutPage CheckoutPage => new CheckoutPage(Driver);
 
         public void NavigateTo(string url)
         {

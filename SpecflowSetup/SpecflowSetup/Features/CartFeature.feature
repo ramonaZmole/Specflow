@@ -51,3 +51,9 @@ Examples:
 Scenario: Shipping is free for total above $1000
 	And I have material 20093 with quantity 105
 	Then the shipping is free
+
+
+Scenario: Discount is present
+	And  there is product 20093 with quantity 105 in cart
+	When the user apply a priority code
+	Then the discount is present

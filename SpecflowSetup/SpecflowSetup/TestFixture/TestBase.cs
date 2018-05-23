@@ -1,5 +1,4 @@
 ﻿using System;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using SpecflowSetup.Pages;
@@ -8,7 +7,6 @@ using TechTalk.SpecFlow;
 namespace SpecflowSetup.TestFixture
 {
     [Binding]
-    [SetUpFixture]
     public class TestBase
     {
         public static IWebDriver Driver;

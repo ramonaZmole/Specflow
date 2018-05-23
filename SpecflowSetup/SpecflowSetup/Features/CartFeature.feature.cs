@@ -217,6 +217,25 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Discount is present")]
+        public virtual void DiscountIsPresent()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Discount is present", ((string[])(null)));
+#line 56
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 57
+ testRunner.And("there is product 20093 with quantity 105 in cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+ testRunner.When("the user apply a priority code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 59
+ testRunner.Then("the discount is present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
