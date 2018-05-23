@@ -92,13 +92,14 @@ namespace SpecflowSetup.Steps
         [When(@"the user apply a priority code")]
         public void WhenTheUserApplyAPriorityCode()
         {
-            ScenarioContext.Current.Pending();
+            _cartPage.AddPriorityCode();
         }
 
         [Then(@"the discount is present")]
         public void ThenTheDiscountIsPresent()
         {
-            ScenarioContext.Current.Pending();
+            var isDiscount = _cartPage.IsDiscountPresent();
+            Assert.AreEqual(isDiscount, true);
         }
 
     }

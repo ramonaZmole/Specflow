@@ -2,7 +2,7 @@
 	In order to place order
 	As a user
 	I want to be able to make changes in cart
-
+		
 Background: 
 	Given the user is in cart
 

@@ -20,6 +20,10 @@ namespace SpecflowSetup.Pages
         private readonly By _quantityInputs = By.CssSelector("[name*='quantity']");
         private readonly By _emptyCartLink = By.CssSelector("#empty-cart-link");
         private readonly By _emptyCartButton = By.CssSelector("#empty-cart-model-save");
+        private readonly By _applyPriorityCodeButton = By.CssSelector("#prioritycode-apply-button");
+        private readonly By _priorityCodeField = By.CssSelector("#promoCode-input");
+        private readonly By _discountValue = By.CssSelector("[ng-if='cart.productsDiscount']>.row:nth-child(1) strong");
+
 
         public CartPage(IWebDriver driver) : base(driver)
         {
@@ -92,6 +96,18 @@ namespace SpecflowSetup.Pages
             ActionClick(_emptyCartLink);
             ActionClick(_emptyCartButton);
             WaitForAllAjaxRequestToFinish();
+        }
+
+        public void AddPriorityCode()
+        {
+            ActionSendKeys(_priorityCodeField, Constants.PriorityCode);
+            ActionClick(_applyPriorityCodeButton);
+            WaitForAllAjaxRequestToFinish();
+        }
+
+        public bool IsDiscountPresent()
+        {
+            return Driver.FindElement(_discountValue).Displayed;
         }
     }
 }

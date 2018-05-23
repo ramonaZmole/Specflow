@@ -10,7 +10,7 @@ namespace SpecflowSetup.Steps
     {
         private readonly CheckoutPage _checkoutPage = AbstractPage.CheckoutPage;
 
-        [Given(@"the user is in checkout")]
+        [Given(@"the user goes to checkout")]
         public void GivenTheUserIsInChekout()
         {
             _checkoutPage.NavigateTo(Constants.CheckoutUrl);

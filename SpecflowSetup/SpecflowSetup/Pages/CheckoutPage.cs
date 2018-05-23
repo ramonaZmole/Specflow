@@ -16,8 +16,16 @@ namespace SpecflowSetup.Pages
         {
         }
 
+        public void ScrollDownToView(int value)
+        {
+            var jse = (IJavaScriptExecutor)Driver;
+            jse.ExecuteScript($"window.scrollTo(0, document.body.scrollHeight - {value})");
+            WaitForAllAjaxRequestToFinish();
+        }
+
         public void ApplyPriorityCode()
         {
+            ScrollDownToView(1250);
             ActionSendKeys(_priorityCodeInput, Constants.PriorityCode);
             ActionClick(_applyPromoCodeButton);
             WaitForAllAjaxRequestToFinish();
