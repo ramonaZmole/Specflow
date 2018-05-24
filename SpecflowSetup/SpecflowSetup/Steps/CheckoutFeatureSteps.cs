@@ -31,5 +31,18 @@ namespace SpecflowSetup.Steps
             var isDisplayed = _checkoutPage.IsDiscountDisplayed();
             Assert.AreEqual(isDisplayed, true);
         }
+
+
+        [Scope(Feature = "CheckoutFeature", Scenario = "Discount is present")]
+        public void ThenTheDiscountisPresent()
+        {
+        }
+
+        [Scope(Feature = "CheckoutFeature")]
+        [Scope(Scenario = "Discount is present")]
+        public void ThenTheDiscountisPresentt()
+        {
+        }
+
     }
 }
